@@ -1,0 +1,28 @@
+<!-- form results -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Problems</title>
+</head>
+<body>
+    <div class="form">
+        <form method="post">
+            {{ form.hidden_tag() }} 
+            {{ form.search.label }} 
+            {{ form.search() }}
+            {{ form.submit() }}
+        </form>
+    </div>
+    <div>
+        {% for res in results %}
+        <a href="{{res['link']}}">
+            {{res['link']}}
+        </a>
+        <p>Score: {{ res['score'] }}</p>
+        {%endfor%}
+    </div>
+</body>
+</html>
